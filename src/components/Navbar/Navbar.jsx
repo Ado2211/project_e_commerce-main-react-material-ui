@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { AppBar, Toolbar, IconButton, Badge, MenuItem, Menu, Typography } from '@material-ui/core';
-import { ShoppingCart } from '@material-ui/icons';
+import { Home, Info, ShoppingCart } from '@material-ui/icons';
 import { Link, useLocation } from 'react-router-dom';
 
 import logo from '../../assets/commerce.png';
 import useStyles from './styles';
+import Products from '../Products/Products';
+import { IconGroup } from 'semantic-ui-react';
 
 const PrimarySearchAppBar = ({ totalItems }) => {
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState(null);
@@ -33,16 +35,22 @@ const PrimarySearchAppBar = ({ totalItems }) => {
   return (
     <>
       <AppBar position="fixed" className={classes.appBar} color="inherit">
-        <Toolbar>
+        <Toolbar className={classes.toolbar}>
           <Typography component={Link} to="/" variant="h6" className={classes.title} color="inherit">
             <img src={logo} alt="commerce.js" height="25px" className={classes.image} /> Commerce.js
+          </Typography>
+          <Typography component={Link} to="/" variant="h6" className={classes.title} color="inherit">
+           <Home></Home> Home
+          </Typography>
+          <Typography component={Link} to="/" variant="h6" className={classes.title} color="inherit">
+          <Info></Info> Info
           </Typography>
           <div className={classes.grow} />
           {location.pathname === '/' && (
           <div className={classes.button}>
-            <IconButton component={Link} to="/cart" aria-label="Show cart items" color="inherit">
+            <IconButton className={classes.cart} component={Link} to="/cart" aria-label="Show cart items" color="inherit">
               <Badge badgeContent={totalItems} color="secondary">
-                <ShoppingCart />
+                <ShoppingCart /> My Cart
               </Badge>
             </IconButton>
           </div>

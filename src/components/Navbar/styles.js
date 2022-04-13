@@ -3,6 +3,27 @@ import { makeStyles, fade } from '@material-ui/core/styles';
 const drawerWidth = 0;
 
 export default makeStyles((theme) => ({
+  toolbar: {
+
+    marginLeft: 'auto',
+    [theme.breakpoints.down('sm')]: {
+      marginLeft: '40px'
+    },
+    [theme.breakpoints.down('md')]: {
+      marginLeft: 'auto',
+
+    }
+  },
+  cart: {
+    marginLeft: theme.spacing(5),
+    marginRight: theme.spacing(27),
+    [theme.breakpoints.down('sm')]: {
+      marginRight: '40px'
+    },
+    [theme.breakpoints.down('md')]: {
+      marginRight: 'auto',
+    }
+  },
   appBar: {
     boxShadow: 'none',
     borderBottom: '1px solid rgba(0, 0, 0, 0.12)',
@@ -12,13 +33,13 @@ export default makeStyles((theme) => ({
     },
   },
   title: {
-    flexGrow: 1,
+    marginRight: '10px',
     alignItems: 'center',
     display: 'flex',
     textDecoration: 'none',
   },
   image: {
-    marginRight: '10px',
+
   },
   menuButton: {
     marginRight: theme.spacing(2),
